@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myphotoshop.TelaPrincipalController">
+   <top>
+      <VBox prefHeight="52.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="_Arquivo">
+                  <items>
+                    <MenuItem onAction="#evt_Abrir" text="_Abrir" />
+                        <MenuItem onAction="#evt_Salvar" text="_Salvar" />
+                        <MenuItem onAction="#evt_SalvarComo" text="Salvar _Como" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem onAction="#evt_Fechar" text="_Fechar" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="_Ferramentas">
+                     <items>
+                        <Menu text="_Básicas">
+                          <items>
+                            <MenuItem onAction="#evt_Cinza" text="Tons de _Cinza" />
+                              <MenuItem onAction="#evt_Media" text="Passa Baixa _Média" />
+                              <MenuItem onAction="#evt_Prewitt" text="Passa Alta _Prewitt" />
+                          </items>
+                        </Menu>
+                     </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="_Ajuda">
+                  <items>
+                    <MenuItem onAction="#evt_Sobre" text="_Sobre" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" onAction="#evt_Salvar" prefHeight="34.0" prefWidth="34.0" style="-fx-background-image: url('icons/salvar.png'); -fx-background-repeat: no-repeat; -fx-background-position: center center; -fx-background-color: transparent;" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <ImageView fx:id="imgview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
