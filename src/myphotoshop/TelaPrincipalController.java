@@ -37,10 +37,11 @@ public class TelaPrincipalController implements Initializable
     private void evt_Abrir(ActionEvent event)
     {
         FileChooser fc = new FileChooser();
-        
         //COLOCAR FILTROS PARA IMAGEM JPG, GIF, PNG e JPEG
+        FileChooser.ExtensionFilter extensao = new FileChooser.ExtensionFilter("Todas as Imagens ","*.jpg","*.jpeg","*.gif","*.png");      
+        fc.getExtensionFilters().add(extensao);
+        arq = fc.showOpenDialog(null); // ABRIR UM ARQUIVO/IMAGEM 
         
-        arq = fc.showOpenDialog(null); // ABRIR UM ARQUIVO/IMAGEM        
         if(arq != null)
         {
           img = new Image(arq.toURI().toString()); 
