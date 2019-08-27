@@ -24,8 +24,8 @@ public class MyPhotoShop extends Application
         Parent root = FXMLLoader.load(getClass().getResource("TelaPrincipal.fxml"));
         
         Scene scene = new Scene(root);
-        stage.setTitle("Photoshop v0.1");
-        stage.setScene(scene);
+        stage.setTitle("Photoshop FX");
+        stage.setScene(scene);       
         stage.show();
     }
 
