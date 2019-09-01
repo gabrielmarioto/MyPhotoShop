@@ -110,4 +110,41 @@ public class Basicas
         
         return img;
     }
+    
+    public static Image sobel(Image img)
+    {
+        img = suavizacao(img,3); // CONVERSÃO PARA CINZA
+        BufferedImage imagemO,imagemD;
+        imagemO = SwingFXUtils.fromFXImage(img, null);
+        imagemD = new BufferedImage(imagemO.getWidth(),imagemO.getHeight(),imagemO.getType());
+        WritableRaster raster = imagemO.getRaster();
+        WritableRaster rasterDest = imagemD.getRaster();
+        int[] pixel = {0,0,0,0}; // R,G,B,(ALFA);
+        int z1,z2,z3,z4,z6,z7,z8,z9;
+        
+        //z7 + 2.z8 + z9 - z1 +2.z2 +z3 ^2 +z3 +2.z6 + z9 - (z1+2.z4 + z7) ^2
+        
+        for (int i = 1; i < img.getHeight()-1; i++) // LINHA
+        {
+            for (int j = 1; j < img.getWidth()-1; j++) // COLUNA
+            {
+                raster.getPixel(j-1, i-1, pixel);z1 = pixel[0];
+                raster.getPixel(j, i-1, pixel);z2 = pixel[0];
+                raster.getPixel(j+1, i-1, pixel);z3 = pixel[0];
+                raster.getPixel(j-1, i, pixel);z4 = pixel[0];
+                raster.getPixel(j+1, i, pixel);z6 = pixel[0];
+                raster.getPixel(j-1, i+1, pixel);z7 = pixel[0];
+                raster.getPixel(j, i+1, pixel);z8 = pixel[0];
+                raster.getPixel(j+1, i+1, pixel);z9 = pixel[0];
+                
+                pixel[0] = pixel[1] = pixel[2] = (int)
+                Math.sqrt( Math.pow( (z7+2*z8+z9) - (z1+2*z2+z3),2) +
+                           Math.pow( (z3+2*z6+z9) - (z1+2*z4+z7),2));
+                
+                rasterDest.setPixel(j, i, pixel);
+            }
+        }
+        return SwingFXUtils.toFXImage(imagemD, null);
+        
+    }
 }

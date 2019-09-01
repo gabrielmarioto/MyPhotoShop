@@ -33,6 +33,7 @@
                             <MenuItem onAction="#evt_Cinza" text="Tons de _Cinza" />
                               <MenuItem onAction="#evt_Media" text="Passa Baixa _Média" />
                               <MenuItem onAction="#evt_Prewitt" text="Passa Alta _Prewitt" />
+                              <MenuItem onAction="#evt_Sobel" text="Passa Alta _Sobel" />
                           </items>
                         </Menu>
                      </items>

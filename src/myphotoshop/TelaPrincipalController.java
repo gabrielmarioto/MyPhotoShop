@@ -13,7 +13,10 @@ import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -23,6 +26,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.FileImageOutputStream;
+import javax.swing.JOptionPane;
 import transformacoes.Basicas;
 
 /**
@@ -62,8 +66,12 @@ public class TelaPrincipalController implements Initializable
     }
 
     @FXML
-    private void evt_Salvar(ActionEvent event)
+    private void evt_Salvar(ActionEvent event) throws IOException
     {
+        arq.getAbsolutePath();
+        if(JOptionPane.showConfirmDialog(null, "Deseja Realmente Salvar Por Cima ?") == JOptionPane.YES_OPTION)
+            ImageIO.write(SwingFXUtils.fromFXImage(imgview.getImage(), null), "png", arq);
+        
     }
 
     @FXML
@@ -103,6 +111,7 @@ public class TelaPrincipalController implements Initializable
     @FXML
     private void evt_Fechar(ActionEvent event)
     {
+        System.exit(0);
     }
 
     @FXML
@@ -124,9 +133,27 @@ public class TelaPrincipalController implements Initializable
     }
 
     @FXML
-    private void evt_Sobre(ActionEvent event)
+    private void evt_Sobre(ActionEvent event) throws IOException
     {
-        
+        try {
+
+        Parent root = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        stage.setScene(scene);
+        stage.setTitle("Sobre");
+        stage.show();
+
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void evt_Sobel(ActionEvent event) 
+    {
+        imgview.setImage(Basicas.sobel(img));
     }
     
 }
