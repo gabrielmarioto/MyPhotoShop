@@ -3,13 +3,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="129.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="myphotoshop.SobreController">
+<AnchorPane id="AnchorPane" prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myphotoshop.SobreController">
    <children>
-      <Label layoutX="218.0" layoutY="105.0" text="Gabriel Marioto - Unoeste 2019" />
-      <Label layoutX="238.0" layoutY="14.0" text="MyPhotoShop - Ferro II" />
-      <Label layoutX="229.0" layoutY="31.0" text="Francisco Assis ( Professor )" />
-      <Label layoutX="237.0" layoutY="48.0" text="Silvio Carro ( Professor )" />
-      <Label layoutX="260.0" layoutY="88.0" text="RA: 101629427" />
+      <Label layoutX="216.0" layoutY="209.0" text="Gabriel Marioto - Unoeste 2019" />
+      <Label layoutX="236.0" layoutY="118.0" text="MyPhotoShop - Ferro II" />
+      <Label layoutX="227.0" layoutY="135.0" text="Francisco Assis ( Professor )" />
+      <Label layoutX="235.0" layoutY="152.0" text="Silvio Carro ( Professor )" />
+      <Label layoutX="258.0" layoutY="192.0" text="RA: 101629427" />
+      <Label fx:id="lbNomeArq" layoutX="236.0" layoutY="14.0" text="Nome do Arquivo: " />
+      <Label fx:id="lbDimImg" layoutX="236.0" layoutY="40.0" text="Dimensão da Imagem:" />
+      <Label fx:id="lbTamArq" layoutX="236.0" layoutY="67.0" text="Tamanho do Arquivo:" />
    </children>
 </AnchorPane>
