@@ -22,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
@@ -49,6 +50,7 @@ public class TelaPrincipalController implements Initializable
     {
         // TODO
         aux = imgview;
+        
     }
 
     @FXML
@@ -148,6 +150,7 @@ public class TelaPrincipalController implements Initializable
         stage.setTitle("Sobre");
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.showAndWait();
     }
 
@@ -176,6 +179,24 @@ public class TelaPrincipalController implements Initializable
     {
         img = imgview.getImage();
         imgview.setImage(ImgJProcess.detBorda(img));
+    }
+
+    @FXML
+    private void evt_SobreImagem(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = FXMLLoader.load(getClass().getResource("SobreDois.fxml"));
+       
+        Parent root = (Parent)loader.load();
+        SobreDoisController ctr = loader.getController();
+        ctr.setNomeArq(arq.getName());
+        ctr.setTamanho((int)(arq.length()));
+        ctr.setLargura((int)imgview.getImage().getWidth());
+        ctr.setAltura((int)imgview.getImage().getHeight());
+        
+         Scene scene = new Scene(root);
+         Stage stage = new Stage();
+        stage.setScene(scene);        
+        stage.showAndWait();
     }
     
 }

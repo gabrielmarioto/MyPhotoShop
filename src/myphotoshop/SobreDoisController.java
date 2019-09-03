@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author GABRIEL
  */
-public class SobreController implements Initializable
+public class SobreDoisController implements Initializable
 {
 
     @FXML
@@ -31,7 +31,30 @@ public class SobreController implements Initializable
     @FXML
     private Label lbTamArq;
 
-    private double cx,cy;
+    private double cx, cy;
+    private String nomeArq;
+
+    public void setNomeArq(String nomeArq)
+    {
+        this.nomeArq = nomeArq;
+    }
+
+    public void setLargura(int largura)
+    {
+        this.largura = largura;
+    }
+
+    public void setAltura(int altura)
+    {
+        this.altura = altura;
+    }
+
+    public void setTamanho(int tamanho)
+    {
+        this.tamanho = tamanho;
+    }
+    private int largura, altura, tamanho;
+
     /**
      * Initializes the controller class.
      */
@@ -41,12 +64,10 @@ public class SobreController implements Initializable
         // TODO
         if (TelaPrincipalController.arq != null)
         {
-            lbNomeArq.setText(lbNomeArq.getText() + " " + TelaPrincipalController.arq.getName());
+            lbNomeArq.setText(lbNomeArq.getText() + " " + nomeArq);
             //lbDimImg.setText(lbDimImg.getText() + " " + TelaPrincipalController.aux.getImage().getWidth()+ "x" + TelaPrincipalController.aux.getImage().getHeight());
-            lbTamArq.setText(lbTamArq.getText() + " " + TelaPrincipalController.arq.length());
-            lbDimImg.setText(lbDimImg.getText() + " "
-                    + String.format("%.0f x %.0f", TelaPrincipalController.aux.getImage().getWidth(),
-                            TelaPrincipalController.aux.getImage().getHeight()));
+            lbTamArq.setText(lbTamArq.getText() + " " + tamanho);
+            lbDimImg.setText(lbDimImg.getText() + " " + String.format("%d x %d", largura, altura));
         }
 
     }

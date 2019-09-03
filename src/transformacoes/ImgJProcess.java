@@ -7,6 +7,7 @@ package transformacoes;
 
 import ij.ImagePlus;
 import ij.process.ImageProcessor;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
@@ -21,12 +22,11 @@ public class ImgJProcess
     {
         BufferedImage bimg;
         bimg = SwingFXUtils.fromFXImage(img, null);       
-        ImagePlus imgPlus = new ImagePlus();
-        
+        ImagePlus imgPlus = new ImagePlus();        
         imgPlus.setImage(bimg);
-        ImageProcessor imP = imgPlus.getProcessor(); // Pegar IMG e jogar no processador de imagem
+        ImageProcessor imP = imgPlus.getProcessor(); // Pegar IMG e jogar no processador de imagem        
         
-        imP.erode();        
+        imP.erode();         
         return SwingFXUtils.toFXImage(imP.getBufferedImage(), null);
     }
     
@@ -38,7 +38,7 @@ public class ImgJProcess
         
         imgPlus.setImage(bimg);
         ImageProcessor imP = imgPlus.getProcessor(); // Pegar IMG e jogar no processador de imagem
-        
+        imP.setColor(Color.gray);
         imP.dilate();
         return SwingFXUtils.toFXImage(imP.getBufferedImage(), null);
     }
@@ -50,9 +50,10 @@ public class ImgJProcess
         ImagePlus imgPlus = new ImagePlus();
         
         imgPlus.setImage(bimg);
-        ImageProcessor imP = imgPlus.getProcessor(); // Pegar IMG e jogar no processador de imagem
         
-        imP.findEdges();
+        ImageProcessor imP = imgPlus.getProcessor(); // Pegar IMG e jogar no processador de imagem
+        imP.setColor(Color.gray);
+        imP.findEdges();        
         return SwingFXUtils.toFXImage(imP.getBufferedImage(), null);
     }
 }

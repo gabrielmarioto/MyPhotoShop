@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" onMouseDragged="#evt_Dragged" onMousePressed="#evt_Pressed" prefHeight="242.0" prefWidth="600.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myphotoshop.SobreController">
+<AnchorPane id="AnchorPane" onMouseDragged="#evt_Dragged" onMousePressed="#evt_Pressed" prefHeight="242.0" prefWidth="600.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myphotoshop.SobreDoisController">
    <children>
       <Label layoutX="216.0" layoutY="209.0" text="Gabriel Marioto - Unoeste 2019" />
       <Label layoutX="236.0" layoutY="118.0" text="MyPhotoShop - Ferro II" />
