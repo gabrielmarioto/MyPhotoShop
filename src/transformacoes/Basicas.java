@@ -5,6 +5,7 @@
  */
 package transformacoes;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import javafx.embed.swing.SwingFXUtils;
@@ -105,12 +106,6 @@ public class Basicas
         
         
     }
-    public static Image kVizinhos(Image img,int k) // FAZER OS KVIZINHOS
-    {
-        
-        return img;
-    }
-    
     public static Image sobel(Image img)
     {
         img = suavizacao(img,3); // CONVERSÃO PARA CINZA
@@ -146,5 +141,20 @@ public class Basicas
         }
         return SwingFXUtils.toFXImage(imagemD, null);
         
+    }
+    
+    public static Image pintar (Image img  , int x, int y)
+    {
+        BufferedImage bimagem =  SwingFXUtils.fromFXImage(img, null);
+        WritableRaster wr = bimagem.getRaster(); 
+        int[]pixel ={0,0,0,0};
+        wr.setPixel(x+1, y+1, pixel);
+        wr.setPixel(x-1, y-1, pixel);
+        wr.setPixel(x, y, pixel);
+
+        bimagem.setRGB(x, y, Color.YELLOW.getRGB());
+        bimagem.setRGB(x+1, y+1, Color.YELLOW.getRGB());
+        bimagem.setRGB(x-1, y-1, Color.YELLOW.getRGB());
+        return SwingFXUtils.toFXImage(bimagem, null);
     }
 }

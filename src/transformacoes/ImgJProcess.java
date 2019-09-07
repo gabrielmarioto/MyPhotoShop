@@ -56,4 +56,56 @@ public class ImgJProcess
         imP.findEdges();        
         return SwingFXUtils.toFXImage(imP.getBufferedImage(), null);
     }
+    
+    public static Image negativo(Image img) {
+        BufferedImage imagem;
+        imagem = SwingFXUtils.fromFXImage(img, null);
+        
+        ImagePlus iplus = new ImagePlus();
+        iplus.setImage(imagem);
+        
+        ImageProcessor ip = iplus.getProcessor();
+        ip.invert();
+        
+        return SwingFXUtils.toFXImage(iplus.getBufferedImage(), null);
+    }
+    
+    public static Image nitidez(Image img) {
+        BufferedImage imagem;
+        imagem = SwingFXUtils.fromFXImage(img, null);
+        
+        ImagePlus iplus = new ImagePlus();
+        iplus.setImage(imagem);
+        
+        ImageProcessor ip = iplus.getProcessor();
+        ip.sharpen();
+        
+        return SwingFXUtils.toFXImage(iplus.getBufferedImage(), null);
+    }
+    
+    public static Image rotacionar(Image img) {
+        BufferedImage imagem;
+        imagem = SwingFXUtils.fromFXImage(img, null);
+        
+        ImagePlus iplus = new ImagePlus();
+        iplus.setImage(imagem);
+        
+        ImageProcessor ip = iplus.getProcessor();
+        ip.rotate(90);
+        
+        return SwingFXUtils.toFXImage(iplus.getBufferedImage(), null);
+    }
+    public static Image suavizar(Image img)
+    {
+        BufferedImage imagem;
+        imagem = SwingFXUtils.fromFXImage(img, null);
+        
+        ImagePlus iplus = new ImagePlus();
+        iplus.setImage(imagem);
+        
+        ImageProcessor ip = iplus.getProcessor();
+        ip.smooth();
+        
+        return SwingFXUtils.toFXImage(iplus.getBufferedImage(), null);
+    }
 }

@@ -42,6 +42,10 @@
                               <MenuItem onAction="#evt_Erosao" text="Erosão" />
                               <MenuItem onAction="#evt_Dilatacao" text="Diltação" />
                               <MenuItem onAction="#evt_DetBorda" text="Detectar Borda" />
+                              <MenuItem onAction="#evtNegativo" text="Negativo" />
+                              <MenuItem onAction="#evtNitidez" text="Nitidez" />
+                              <MenuItem onAction="#evtRotacao" text="Rotação 90º" />
+                              <MenuItem onAction="#evtSuavizar" text="Suavizar" />
                            </items>
                         </Menu>
                      </items>
@@ -64,7 +68,7 @@
    <center>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <ImageView fx:id="imgview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgview" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#evtCaneta" onMousePressed="#evtCaneta" pickOnBounds="true" preserveRatio="true" />
          </content>
          <contextMenu>
             <ContextMenu>

@@ -17,8 +17,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -44,7 +49,9 @@ public class TelaPrincipalController implements Initializable
     static public ImageView aux;
     private Image img;
     static public File arq = null;
-
+    
+    
+    private double telax , telay;
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -198,5 +205,42 @@ public class TelaPrincipalController implements Initializable
         stage.setScene(scene);        
         stage.showAndWait();
     }
+
+    @FXML
+    private void evtNegativo(ActionEvent event) {
+        img=imgview.getImage();
+        imgview.setImage(ImgJProcess.negativo(img));
+    }
+
+    @FXML
+    private void evtNitidez(ActionEvent event) {
+        img=imgview.getImage();
+        imgview.setImage(ImgJProcess.nitidez(img));
+    }
+
+    @FXML
+    private void evtRotacao(ActionEvent event) {
+        img=imgview.getImage();
+        imgview.setImage(ImgJProcess.rotacionar(img));
+    }
+
+    @FXML
+    private void evtSuavizar(ActionEvent event) {
+        img=imgview.getImage();
+        imgview.setImage(ImgJProcess.suavizar(img));
+    }
+
+    @FXML
+    private void evtCaneta(MouseEvent event) {
+        telax = event.getX();
+        telay = event.getY();
+        if (img != null) 
+        {
+            
+            img = imgview.getImage();
+            imgview.setImage(Basicas.pintar(img, (int) telax, (int) telay));
+        }
+    }
+    
     
 }
